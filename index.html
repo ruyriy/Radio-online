@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Християнське онлайн радіо</title>
+    <link rel="icon" type="image/png" href="from-radio.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h3 {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .category {
+            font-weight: bold;
+            margin-top: 20px;
+            display: block;
+            color: #4CAF50;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Християнське онлайн радіо</h1>
+        <h3>Сбірка: (Дім Євангелія" м Суми, Украина © 2025 р.)</h3>
+    </header>
+    <div class="container">
+        <ul>
+            <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4055/stream', 'Чтение Нового Завета', event)">Чтение Нового Завета</a></li>
+            <li><a href="#" onclick="playRadio('https://rs.radioslovo.net:4165/stream', 'Ветхий Завет', event)">Ветхий Завет</a></li>
+            <li><a href="#" onclick="playRadio('https://www.liveradio.es/http://radiopiligrim.ru:8000/bible', 'Пилигрим-Библия Новый Завет', event)">Пилигрим-Библия Новый Завет</a></li>
+            <li><a href="#" onclick="playRadio('https://online.svitle.org:6729/fm', 'СВІТЛЕ РАДІО ЕММАНУЇЛ', event)">СВІТЛЕ РАДІО ЕММАНУЇЛ</a></li>
+        </ul>
+        <a class="category">Музыкальное, детское служение</a>
+        <ul>
+            <li><a href="#" onclick="playRadio('http://live2.detskoeradio.org/radio.mp3', 'Детское христианское радио', event)">Детское христианское радио</a></li>
+            <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4275/stream', 'Инструментальная Христианская музыка', event)">Инструментальная Христианская музыка</a></li>
+            <li><a href="#" onclick="playRadio('https://c13.radioboss.fm:18516/stream', 'Слово Благодати', event)">Слово Благодати</a></li>
+            <li><a href="#" onclick="playRadio('https://icecast.pereraadio.ee:9000/Semeinoje', 'Семейное Радио Эли', event)">Семейное Радио Эли</a></li>
+            <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4145/stream', '«Открытое Слово» Авто радио', event)">«Открытое Слово» Авто радио</a></li>
+            <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:4395/radio?1714579709762', '«Открытое Слово» христианское радио', event)">«Открытое Слово» христианское радио</a></li>
+            <li><a href="#" onclick="playRadio('https://rt.radioslovo.net:5005/radio?1714621827960', '«Открытое Слово» христианское радио укр.', event)">«Открытое Слово» христианское радио укр.</a></li>
+            <li><a href="#" onclick="playRadio('https://d6ee837f-fdca-4f41-81b1-cfca577979f5.pub.instances.scw.cloud:8440/russian_music.mp3', 'RadioMV Музыка', event)">RadioMV Музыка</a></li>
+            <li><a href="#" onclick="playRadio('https://nlradio.stream:8000/nlradio-low.aac', 'Новая жизнь', event)">Новая жизнь</a></li>
+        </ul>
+        <audio id="radioPlayer" controls>
+            Ваш браузер не поддерживает аудио элемент.
+        </audio>
+    </div>
+
+    <script>
+        let currentAudio = null;
+
+        function playRadio(url, title, event) {
+            event.preventDefault(); // Отменяем стандартное действие ссылки
+
+            if (currentAudio) {
+                currentAudio.pause(); // Останавливаем предыдущее радио
+            }
+
+            const audioPlayer = document.getElementById('radioPlayer');
+            audioPlayer.src = url;
+            audioPlayer.play();
+            currentAudio = audioPlayer;
+
+            // Обновляем заголовок страницы с названием радиостанции
+            document.title = title + " | Християнське онлайн радіо";
+        }
+    </script>
+</body>
+</html>
