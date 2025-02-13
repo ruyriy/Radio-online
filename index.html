@@ -98,9 +98,6 @@
     </div>
 
     <script>
-         function showShortcutInstructions() {
-            alert("Щоб додати ярлик на головний екран:\n\nДля iPhone (Safari): Натисніть Поділитися -> Додати на головний екран.\n\nДля Android (Chrome): Натисніть меню (три крапки) -> Додати на головний екран.");
-        }
         let currentAudio = null;
 
         function playRadio(url, title, event) {
@@ -117,6 +114,9 @@
 
             // Обновляем заголовок страницы с названием радиостанции
             document.title = title + " | Християнське онлайн радіо";
+        }
+            function showShortcutInstructions() {
+            alert("Щоб додати ярлик на головний екран:\n\nДля iPhone (Safari): Натисніть Поділитися -> Додати на головний екран.\n\nДля Android (Chrome): Натисніть меню (три крапки) -> Додати на головний екран.");
         }
     </script>
 </body>
